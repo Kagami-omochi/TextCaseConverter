@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文大文字・小文字変換ツール</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            resize: vertical;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            border-color: #007bff;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-main {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-main:hover {
+            background-color: #0056b3;
+        }
+        .btn-clear {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+        .btn-clear:hover {
+            background-color: #dee2e6;
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Text Case Converter</h1>
+    <textarea id="textInput" placeholder="ここに英語の文章を入力してください..."></textarea>
+    
+    <div class="button-group">
+        <button class="btn-main" onclick="toUpperCase()">全部大文字に</button>
+        <button class="btn-main" onclick="toLowerCase()">全部小文字に</button>
+        <button class="btn-clear" onclick="clearText()">クリア</button>
+    </div>
+</div>
+
+<script>
+    const textArea = document.getElementById('textInput');
+
+    function toUpperCase() {
+        textArea.value = textArea.value.toUpperCase();
+    }
+
+    function toLowerCase() {
+        textArea.value = textArea.value.toLowerCase();
+    }
+
+    function clearText() {
+        if(confirm('入力をクリアしますか？')) {
+            textArea.value = '';
+        }
+    }
+</script>
+
+</body>
+</html>
